@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export const SubObject = props => {
   const context = useContext(Context);
   const [, updateState] = useState();
-  const elementsPerPage = 11;
   const [currentElements, setCurrentElements] = useState(
     context.getCurrentElements()
   );
