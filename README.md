@@ -2,7 +2,7 @@
 
     npm install
 
-## Next
+## Then
 
     npm start
 
