@@ -9,7 +9,8 @@ const App = () => {
     <div className="App">
       <Router>
         <Provider>
-          <Route path="/photo/:picture/:index" component={Main} />
+          <Route exact path="/" component={Main} />
+          <Route path="/:picture/:index" component={Main} />
         </Provider>
       </Router>
     </div>

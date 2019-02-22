@@ -9,13 +9,8 @@ export const SubObject = props => {
   const [currentElements, setCurrentElements] = useState(
     context.getCurrentElements()
   );
-
   let pagesNumber = [];
-  for (
-    let i = 1;
-    i < Math.ceil(context.myState.length / elementsPerPage);
-    i++
-  ) {
+  for (let i = 1; i < Math.ceil(context.myState.length / 12 + 1); i++) {
     pagesNumber.push(i);
   }
 
@@ -30,7 +25,7 @@ export const SubObject = props => {
           return (
             <li key={el.id}>
               <Link
-                to={"/photo/" + el.id + "/" + context.currentPage}
+                to={"/" + el.id + "/" + context.currentPage}
                 key={el.id}
                 value={el.title}
               >
@@ -44,10 +39,7 @@ export const SubObject = props => {
       )}
       {pagesNumber.map(number => {
         return (
-          <Link
-            key={number}
-            to={"/photo/" + props.props.picture + "/" + number}
-          >
+          <Link key={number} to={"/" + props.props.picture + "/" + number}>
             <button
               onClick={() => {
                 context.setPage(number);

@@ -17,7 +17,11 @@ export const Provider = props => {
           setCurrentPage(number);
         },
         getCurrentElements: () => {
-          return myState.slice(currentPage * 12 - 12, currentPage * 12);
+          if (currentPage) {
+            return myState.slice(currentPage * 12 - 12, currentPage * 12);
+          } else {
+            return myState.slice(1 * 12 - 12, 1 * 12);
+          }
         }
       }}
     >

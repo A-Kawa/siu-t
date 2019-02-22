@@ -5,6 +5,7 @@ export async function getFromApi() {
     const response = await fetch(REST_API_ADRESS);
     return response.json();
   } catch (err) {
+    //eslint-disable-next-line
     console.log(err);
   }
 }

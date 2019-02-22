@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { SubObject } from "./SubObject";
+import { SubObject } from "./LeftSideObject";
 import { getFromApi } from "../utils/getFromApi";
 import { Context } from "../store/context";
 import { LoaderSpinner } from "../components/LoaderSpinner";
@@ -7,7 +7,6 @@ import "../layout/Main.scss";
 
 export const Main = ({ match }) => {
   const context = useContext(Context);
-
   useEffect(() => {
     getFromApi().then(res => {
       context.getData(res);
