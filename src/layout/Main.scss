@@ -1,5 +1,8 @@
+$small-size: 800px;
+
 .Main {
   box-sizing: border-box;
+
   .grid-left {
     float: left;
     width: 50%;
@@ -16,5 +19,19 @@
   .grid-right {
     float: right;
     width: 50%;
+  }
+}
+@media screen and (max-width: $small-size) {
+  .Main {
+    display: flow-root;
+    box-sizing: unset;
+    .grid-left {
+      float: inline-start;
+      width: 100%;
+    }
+    .grid-right {
+      margin-bottom: 50%;
+      width: 100%;
+    }
   }
 }
