@@ -4,6 +4,7 @@ import { getFromApi } from "../utils/getFromApi";
 import { Context } from "../store/context";
 import { LoaderSpinner } from "../components/LoaderSpinner";
 import "../layout/Main.scss";
+import { LeftSideObject } from "./RightSideObject";
 
 export const Main = ({ match }) => {
   const context = useContext(Context);
@@ -32,7 +33,7 @@ export const Main = ({ match }) => {
       </div>
       <div className="grid-right">
         <div className="right-one">
-          <h1>Test2</h1>
+          <LeftSideObject props={match.params} />
         </div>
       </div>
     </div>

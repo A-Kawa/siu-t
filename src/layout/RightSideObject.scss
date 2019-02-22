@@ -1,0 +1,15 @@
+.left-side-object {
+  .picture {
+    border-radius: 50%;
+    margin-top: 50%;
+    transition: 0.5s ease;
+    height: 60pt;
+    width: 60pt;
+  }
+  .picture:hover {
+    background-color: aqua;
+    border-radius: 0%;
+    width: max-content;
+    height: max-content;
+  }
+}

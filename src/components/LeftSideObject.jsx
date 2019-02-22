@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/context";
 import { Link } from "react-router-dom";
+import { LoaderSpinner } from "./LoaderSpinner";
 
 export const SubObject = props => {
   const context = useContext(Context);
@@ -12,7 +13,10 @@ export const SubObject = props => {
   for (let i = 1; i < Math.ceil(context.myState.length / 12 + 1); i++) {
     pagesNumber.push(i);
   }
-
+  let currentPage = context.currentPage;
+  if (!currentPage) {
+    currentPage = 1;
+  }
   useEffect(() => {
     setCurrentElements(context.getCurrentElements());
   }, [context.currentPage]);
@@ -24,7 +28,7 @@ export const SubObject = props => {
           return (
             <li key={el.id}>
               <Link
-                to={"/" + el.id + "/" + context.currentPage}
+                to={"/" + context.myState.indexOf(el) + "/" + currentPage}
                 key={el.id}
                 value={el.title}
               >
@@ -34,7 +38,7 @@ export const SubObject = props => {
           );
         })
       ) : (
-        <h1>zzz</h1>
+        <LoaderSpinner />
       )}
       {pagesNumber.map(number => {
         return (
