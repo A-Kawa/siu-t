@@ -1,0 +1,16 @@
+{
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "rules": {
+    "semi": 0,
+    "no-console": "warn",
+    "no-var": "error",
+    "no-unused-vars": "error",
+    "no-sequences": "off",
+    "no-useless-return": "error",
+    "no-unused-expressions": "off",
+    "brace-style": "warn",
+    "camelcase": "error",
+    "no-alert": "off",
+    "no-duplicate-imports": "error"
+  }
+}
