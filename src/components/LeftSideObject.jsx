@@ -2,17 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/context";
 import { Link } from "react-router-dom";
 import { LoaderSpinner } from "./LoaderSpinner";
+import { Pagination } from "./Pagination";
 
 export const SubObject = props => {
   const context = useContext(Context);
-  const [, updateState] = useState();
+  console.log(props);
   const [currentElements, setCurrentElements] = useState(
     context.getCurrentElements()
   );
-  let pagesNumber = [];
-  for (let i = 1; i < Math.ceil(context.myState.length / 12 + 1); i++) {
-    pagesNumber.push(i);
-  }
+
   let currentPage = context.currentPage;
   if (!currentPage) {
     currentPage = 1;
@@ -40,22 +38,9 @@ export const SubObject = props => {
       ) : (
         <LoaderSpinner />
       )}
-      {pagesNumber.map(number => {
-        return (
-          <Link key={number} to={"/" + props.props.picture + "/" + number}>
-            <button
-              onClick={() => {
-                context.setPage(number);
-                updateState();
-              }}
-              key={number}
-              id={number}
-            >
-              {number}
-            </button>
-          </Link>
-        );
-      })}
+      <div style={{ marginTop: "15px" }}>
+        <Pagination props={props.props} />
+      </div>
     </div>
   );
 };
